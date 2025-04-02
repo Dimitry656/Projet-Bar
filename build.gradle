@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'application'
+
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+// On redéfinit le répertoire des sources
+sourceSets {
+    main {
+        java {
+            srcDirs = ['app/src']  // Vos fichiers Java sont dans app/src/
+        }
+        resources {
+            srcDirs = ['app/src/ressources']  // Si vous avez des ressources ici
+        }
+    }
+}
+
+dependencies {
+    implementation 'org.postgresql:postgresql:42.5.0'
+}
+application {
+    mainClass = 'javaCode.Test'
+}
