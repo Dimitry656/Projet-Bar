@@ -2,92 +2,67 @@ package java.Entities;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Date;
 
 /**
- * La classe Stock gère l'ensemble des stocks de boissons.
- * Elle utilise une Map pour associer chaque Boisson à sa quantité disponible.
+ * Représente une instance de stock pour une boisson.
+ * Chaque entrée correspond à un contenant physique (par exemple, une bouteille)
+ * et contient des informations spécifiques telles que la date de péremption et
+ * le pourcentage restant (indiquant le volume non utilisé par rapport à la contenance totale).
  */
 public class Stock {
+    private int id;               // Identifiant unique de l'entrée de stock
+    private Boisson boisson;      // La boisson associée (référence vers l'entité Boisson)
+    private Date datePeremption;  // Date de péremption (NULL si jamais périmée)
+    private double pourcentageRestant; // Pourcentage restant dans le contenant (100 = complet)
 
-    // Map associant chaque Boisson à la quantité disponible
-    private Map<Boisson, Integer> stockMap;
-
-    /**
-     * Constructeur par défaut.
-     */
+    // Constructeur par défaut
     public Stock() {
-        this.stockMap = new HashMap<>();
     }
 
-    /**
-     * Ajoute une quantité pour une boisson donnée.
-     * Si la boisson est déjà présente, sa quantité est incrémentée.
-     *
-     * @param b         La boisson à ajouter.
-     * @param quantite  La quantité à ajouter.
-     */
-    public void ajouterBoisson(Boisson b, int quantite) {
-        if (b == null || quantite <= 0) {
-            return;
-        }
-        int quantiteExistante = stockMap.getOrDefault(b, 0);
-        stockMap.put(b, quantiteExistante + quantite);
+    // Constructeur paramétré
+    public Stock(Boisson boisson, Date datePeremption, double pourcentageRestant) {
+        this.boisson = boisson;
+        this.datePeremption = datePeremption;
+        this.pourcentageRestant = pourcentageRestant;
     }
 
-    /**
-     * Retire une quantité pour une boisson donnée.
-     * Si la quantité à retirer est égale ou supérieure à la quantité existante,
-     * la boisson est retirée du stock.
-     *
-     * @param b         La boisson à retirer.
-     * @param quantite  La quantité à retirer.
-     */
-    public void retirerBoisson(Boisson b, int quantite) {
-        if (b == null || quantite <= 0) {
-            return;
-        }
-        int quantiteExistante = stockMap.getOrDefault(b, 0);
-        if (quantiteExistante <= quantite) {
-            stockMap.remove(b);
-        } else {
-            stockMap.put(b, quantiteExistante - quantite);
-        }
+    // Getters et setters
+    public int getId() {
+        return id;
     }
 
-    /**
-     * Vérifie si la quantité demandée pour une boisson est disponible.
-     *
-     * @param b         La boisson à vérifier.
-     * @param quantite  La quantité demandée.
-     * @return true si la quantité disponible est suffisaSnte, false sinon.
-     */
-    public boolean verifierDisponibilite(Boisson b, int quantite) {
-        if (b == null || quantite <= 0) {
-            return false;
-        }
-        int quantiteExistante = stockMap.getOrDefault(b, 0);
-        return quantiteExistante >= quantite;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    /**
-     * Retourne la quantité disponible pour une boisson donnée.
-     *
-     * @param b La boisson à vérifier.
-     * @return La quantité disponible, ou 0 si la boisson n'est pas présente dans le stock.
-     */
-    public int getQuantite(Boisson b) {
-        if (b == null) {
-            return 0;
-        }
-        return stockMap.getOrDefault(b, 0);
+    public Boisson getBoisson() {
+        return boisson;
     }
 
-    /**
-     * Retourne l'ensemble de la Map de stock.
-     *
-     * @return La Map associant les boissons à leur quantité.
-     */
-    public Map<Boisson, Integer> getStockMap() {
-        return stockMap;
+    public void setBoisson(Boisson boisson) {
+        this.boisson = boisson;
+    }
+
+    public Date getDatePeremption() {
+        return datePeremption;
+    }
+
+    public void setDatePeremption(Date datePeremption) {
+        this.datePeremption = datePeremption;
+    }
+
+    public double getPourcentageRestant() {
+        return pourcentageRestant;
+    }
+
+    public void setPourcentageRestant(double pourcentageRestant) {
+        this.pourcentageRestant = pourcentageRestant;
+    }
+
+    @Override
+    public String toString() {
+        return "Stock [id=" + id + ", boisson=" + boisson + ", datePeremption=" + datePeremption
+                + ", pourcentageRestant=" + pourcentageRestant + "]";
     }
 }
