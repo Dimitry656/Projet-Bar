@@ -13,9 +13,9 @@ public class BoissonNonAlcoolisee extends Boisson {
      * @param contenance
      * @param prix
      * @param degreSucre
-     * @param degreeAlcool
+     * @param degreAlcool
      */
-    public BoissonNonAlcoolisee(String nom, double contenance, double prix, double degreSucre, 0 degreeAlcool) {
+    public BoissonNonAlcoolisee(String nom, double contenance, double prix, double degreSucre, 0 degreAlcool) {
         // TODO implement here
     }
 
