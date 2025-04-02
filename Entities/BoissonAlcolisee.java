@@ -21,7 +21,12 @@ public class BoissonAlcolisee extends Boisson {
      * @param degreSucre
      */
     public void BoissonAlcoolisee(String nom, double contenance, double prix, double degreAlcool, double degreSucre) {
-        // TODO implement here
+        super.setNom(nom);
+        super.setContenance(contenance);
+        super.setPrix(prix);
+        super.setDegreAlcool(degreAlcool);
+        super.setDegreSucre(degreSucre);
+
     }
 
 }

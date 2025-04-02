@@ -13,109 +13,86 @@ public abstract class Boisson {
 	public Boisson() {
 	}
 
-	/**
-	 *
-	 */
 	private String nom;
-
-	/**
-	 *
-	 */
 	private Double contenance;
+	private Double prix;
+	private Double degreAlcool;
+	private Double degreSucre;
 
 	/**
-	 *
-	 */
-	private double prix;
-
-	/**
-	 *
-	 */
-	private double degreAlcool;
-
-	/**
-	 *
-	 */
-	private double degreSucre;
-
-	/**
-	 * @return
+	 * @return double contenance
 	 */
 	public double getContenance() {
-		// TODO implement here
-		return 0.0d;
+		return this.contenance;
 	}
 
 	/**
-	 * @return
+	 * @return String nom
 	 */
 	public String getNom() {
-		// TODO implement here
-		return "";
+		return this.nom;
 	}
 
 	/**
-	 * @return
+	 * @return Double degreAlcool
 	 */
 	public Double getDegreAlcool() {
-		// TODO implement here
-		return null;
+		return this.degreAlcool;
 	}
 
 	/**
-	 * @return
+	 * @return Double degreSucre
 	 */
 	public Double getDegreSucre() {
-		// TODO implement here
-		return null;
+		return this.degreSucre;
 	}
 
 	/**
-	 * @return
+	 * @return Double prix
 	 */
 	public Double getPrix() {
-		// TODO implement here
-		return null;
+		return this.prix;
 	}
 
 	/**
-	 * @return
+	 * @return double contenance
 	 */
-	public double setContenance() {
-		// TODO implement here
-		return 0.0d;
+	public double setContenance( Double contenance) {
+		this.contenance = contenance;
+		return this.contenance;
 	}
 
 	/**
-	 * @return
+	 * @return String nom
 	 */
-	public string setNom() {
-		// TODO implement here
-		return null;
+	public String setNom(String nom ) {
+		this.nom = nom;
+		return this.nom;
 	}
 
 	/**
-	 * @return
+	 * @return Double degreAlcool
 	 */
-	public Double setDegreAlcool() {
-		// TODO implement here
-		return null;
+	public Double setDegreAlcool(Double degreAlcool) {
+		this.degreAlcool = degreAlcool;
+		return this.degreAlcool;
 	}
 
 	/**
-	 * @return
+	 * @return double degreSucre
+
 	 */
-	public double setDegreSucre() {
-		// TODO implement here
-		return 0.0d;
+	public double setDegreSucre(double degreSucre) {
+		this.degreSucre =degreSucre;
+		return this.degreSucre;
 	}
 
 	/**
-	 * @return
+	 * @return Double prix
 	 */
-	public Double setPrix() {
-		// TODO implement here
-		return null;
+	public Double setPrix(double prix) {
+		this.prix =prix;
+		return this.prix;
 	}
 
 }
