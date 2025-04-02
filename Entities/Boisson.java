@@ -6,18 +6,25 @@ package Entities;
  *
  */
 public abstract class Boisson {
+	private String nom;
+	private Double contenance; // en cl
+	private Double prix;
+	private Double degreAlcool;
+	private Double degreSucre;
 
 	/**
 	 * Default constructor
 	 */
-	public Boisson() {
+	public Boisson(String nom, double contenance, Double prix, Double degreAlcool, Double degreSucre) {
+		this.nom = nom;
+		this.contenance = contenance;
+		this.prix = prix;
+		this.degreAlcool = degreAlcool;
+		this.degreSucre = degreSucre;
 	}
 
-	private String nom;
-	private Double contenance;
-	private Double prix;
-	private Double degreAlcool;
-	private Double degreSucre;
+
+
 
 	/**
 	 * @return double contenance
@@ -93,6 +100,14 @@ public abstract class Boisson {
 	public Double setPrix(double prix) {
 		this.prix =prix;
 		return this.prix;
+	}
+
+	public double getAlcoolQuantity() {
+		return this.degreAlcool*this.contenance;
+	}
+
+	public double getSucreQuantity() {
+		return this.degreSucre*this.contenance;
 	}
 
 }
