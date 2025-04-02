@@ -14,15 +14,20 @@ public abstract class Boisson {
 
 	/**
 	 * Default constructor
+	 *
+
 	 */
-	public Boisson(String nom, double contenance, Double prix, Double degreAlcool, Double degreSucre) {
+	public Boisson() {
+
+	}
+
+	public void  Boisson(String nom, double contenance, Double prix, Double degreAlcool, Double degreSucre) {
 		this.nom = nom;
 		this.contenance = contenance;
 		this.prix = prix;
 		this.degreAlcool = degreAlcool;
 		this.degreSucre = degreSucre;
 	}
-
 
 
 

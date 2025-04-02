@@ -9,6 +9,7 @@ import java.util.Map;
  *
  */
 public class Cocktail   {
+    private int id;
     private String nom;
     private Map<Boisson, Double> boissonsUtilisees; // contenance en cl
     private Map<Ingredient, Double> ingredientsUtilises; // quantités (contenance) en cl
