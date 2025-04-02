@@ -59,7 +59,7 @@ public class Stock {
      *
      * @param b         La boisson à vérifier.
      * @param quantite  La quantité demandée.
-     * @return true si la quantité disponible est suffisante, false sinon.
+     * @return true si la quantité disponible est suffisaSnte, false sinon.
      */
     public boolean verifierDisponibilite(Boisson b, int quantite) {
         if (b == null || quantite <= 0) {

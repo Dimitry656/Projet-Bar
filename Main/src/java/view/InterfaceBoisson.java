@@ -1,4 +1,4 @@
-package view;
+package java.view;
 
 import entities.*;
 import model.ModelBoisson;
