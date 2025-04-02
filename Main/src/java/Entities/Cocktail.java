@@ -1,8 +1,6 @@
-package Entities;
+package java.Entities;
 
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**

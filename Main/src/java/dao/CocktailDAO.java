@@ -1,6 +1,6 @@
-package dao;
+package java.dao;
 
-import Entities.Cocktail;
+import java.Entities.Cocktail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
