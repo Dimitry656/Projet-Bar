@@ -1,9 +1,11 @@
+package Entities;
+
 
 import java.io.*;
 import java.util.*;
 
 /**
- * 
+ *
  */
 public class Ingredient {
 
@@ -14,23 +16,23 @@ public class Ingredient {
     }
 
     /**
-     * 
+     *
      */
     private String nom;
 
     /**
-     * 
+     *
      */
     private double prix;
 
     /**
-     * 
+     *
      */
     private double degreSucre;
 
     /**
-     * @param nom 
-     * @param prix 
+     * @param nom
+     * @param prix
      * @param degreSucre
      */
     public Ingredient(String nom, double prix, double degreSucre) {

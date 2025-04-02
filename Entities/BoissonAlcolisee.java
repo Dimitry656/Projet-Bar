@@ -1,9 +1,9 @@
+package Entities;
 
-import java.io.*;
-import java.util.*;
+
 
 /**
- * 
+ *
  */
 public class BoissonAlcolisee extends Boisson {
 
@@ -14,10 +14,10 @@ public class BoissonAlcolisee extends Boisson {
     }
 
     /**
-     * @param nom 
-     * @param contenance 
-     * @param prix 
-     * @param degreAlcool 
+     * @param nom
+     * @param contenance
+     * @param prix
+     * @param degreAlcool
      * @param degreSucre
      */
     public void BoissonAlcoolisee(String nom, double contenance, double prix, double degreAlcool, double degreSucre) {
