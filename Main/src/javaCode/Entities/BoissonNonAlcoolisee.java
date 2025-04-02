@@ -1,4 +1,4 @@
-package java.Entities;
+package javaCode.Entities;
 
 public class BoissonNonAlcoolisee extends Boisson {
 

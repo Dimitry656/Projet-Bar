@@ -1,7 +1,7 @@
-package java.controller;
+package javaCode.controller;
 
-import java.Entities.Ingredient;
-import java.dao.IngredientDAO;
+import javaCode.Entities.Ingredient;
+import javaCode.dao.IngredientDAO;
 import java.util.List;
 
 /**

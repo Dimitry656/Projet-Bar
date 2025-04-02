@@ -1,8 +1,8 @@
-package java.dao;
+package javaCode.dao;
 
-import java.Entities.Cocktail;
-import java.Entities.Boisson;
-import java.Entities.Ingredient;
+import javaCode.Entities.Cocktail;
+import javaCode.Entities.Boisson;
+import javaCode.Entities.Ingredient;
 import java.sql.*;
 import java.util.*;
 

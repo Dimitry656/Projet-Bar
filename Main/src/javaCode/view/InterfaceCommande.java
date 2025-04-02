@@ -1,4 +1,4 @@
-package java.view;
+package javaCode.view;
 
 public class InterfaceCommande {
 

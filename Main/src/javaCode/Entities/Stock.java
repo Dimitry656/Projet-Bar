@@ -1,7 +1,5 @@
-package java.Entities;
+package javaCode.Entities;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Date;
 
 /**

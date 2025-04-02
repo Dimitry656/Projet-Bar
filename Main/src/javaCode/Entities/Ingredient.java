@@ -1,4 +1,4 @@
-package java.Entities;
+package javaCode.Entities;
 
 /**
  * La classe Ingredient représente un ingrédient additionnel utilisé dans la préparation de cocktails.

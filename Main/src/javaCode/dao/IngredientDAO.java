@@ -1,7 +1,7 @@
-package java.dao;
+package javaCode.dao;
 
-import java.Entities.Ingredient;
-import java.dao.DBConnection;
+import javaCode.Entities.Ingredient;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

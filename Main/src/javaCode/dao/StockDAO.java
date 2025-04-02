@@ -1,7 +1,7 @@
-package java.dao;
+package javaCode.dao;
 
-import java.Entities.Stock;
-import java.Entities.Boisson;
+import javaCode.Entities.Stock;
+import javaCode.Entities.Boisson;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

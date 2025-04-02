@@ -1,14 +1,13 @@
-package java.controller;
+package javaCode.controller;
 
-import java.Entities.Cocktail;
-import java.Entities.Ingredient;
-import java.Entities.Boisson;
+import javaCode.Entities.Cocktail;
+import javaCode.Entities.Ingredient;
+import javaCode.Entities.Boisson;
 
 import java.util.List;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.dao.CocktailDAO;
+import javaCode.dao.CocktailDAO;
 
 /**
  * Le CocktailController centralise la logique métier liée aux cocktails.

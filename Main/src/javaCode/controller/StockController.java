@@ -1,12 +1,10 @@
-package java.controller;
+package javaCode.controller;
 
-import java.Entities.Stock;
-import java.Entities.Boisson;
-import java.dao.StockDAO;
+import javaCode.Entities.Stock;
+import javaCode.Entities.Boisson;
+import javaCode.dao.StockDAO;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.Date;
 
 /**
  * Le StockController gère la logique métier relative aux stocks de boissons.
