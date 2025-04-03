@@ -25,5 +25,5 @@ dependencies {
     implementation 'org.postgresql:postgresql:42.5.0'
 }
 application {
-    mainClass = 'javaCode.Test'
+    mainClass = 'Main'
 }

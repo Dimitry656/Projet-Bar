@@ -35,7 +35,7 @@ public class BoissonDAO implements IDao<Boisson> {
 
     public Boisson findByNom(String nom) {
         Boisson boisson = null;
-        String sql = "SELECT id, nom, contenance, prix, degre_alcool, degre_sucre FROM boissons WHERE nom = ?";
+        String sql = "SELECT id, nom, contenance, prix, degre_alcool, degre_sucre FROM boissons WHERE LOWER(nom) = LOWER(?)";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, nom);

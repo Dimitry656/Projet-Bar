@@ -74,7 +74,7 @@ set CLASSPATH=%APP_HOME%\lib\Model.jar;%APP_HOME%\lib\postgresql-42.5.0.jar;%APP
 
 
 @rem Execute Model
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %MODEL_OPTS%  -classpath "%CLASSPATH%" javaCode.Test %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %MODEL_OPTS%  -classpath "%CLASSPATH%" Main %*
 
 :end
 @rem End local scope for the variables with windows NT shell
