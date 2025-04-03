@@ -20,6 +20,9 @@ import javaCode.dao.CocktailDAO;
  *  - de créer des cocktails "sur mesure" sans les enregistrer en base,
  *  - de servir un cocktail (mettre à jour les stocks de boissons et d'ingrédients),
  * - de récupérer la liste des cocktails disponibles (et le nombre de portions réalisables).
+ *
+ *
+ * Actuellement on gere pas les dates de peremptions on suppose que toutes les boissons en stock et ingredients ne périment pas.
  */
 public class CocktailController {
 
