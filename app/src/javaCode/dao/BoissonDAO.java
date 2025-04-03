@@ -33,6 +33,29 @@ public class BoissonDAO implements IDao<Boisson> {
         return boisson;
     }
 
+    public Boisson findByNom(String nom) {
+        Boisson boisson = null;
+        String sql = "SELECT id, nom, contenance, prix, degre_alcool, degre_sucre FROM boissons WHERE nom = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, nom);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                boisson = new Boisson() { };  // ou utilisez une classe concrète si vous en avez une
+                boisson.setId(rs.getInt("id"));
+                boisson.setNom(rs.getString("nom"));
+                boisson.setContenance(rs.getDouble("contenance"));
+                boisson.setPrix(rs.getDouble("prix"));
+                boisson.setDegreAlcool(rs.getDouble("degre_alcool"));
+                boisson.setDegreSucre(rs.getDouble("degre_sucre"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return boisson;
+    }
+
+
     @Override
     public List<Boisson> findAll() {
         List<Boisson> list = new ArrayList<>();
@@ -51,6 +74,17 @@ public class BoissonDAO implements IDao<Boisson> {
 
     @Override
     public boolean insert(Boisson boisson) {
+        try {
+            // Vérifier si une boisson avec ce nom existe déjà
+            if (findByNom(boisson.getNom()) != null) {
+                System.out.println("Doublon détecté pour le nom de boisson: " + boisson.getNom());
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, boisson.getNom());

@@ -1,5 +1,6 @@
 package javaCode.Entities;
 
+import javaCode.controller.CocktailController;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -170,6 +171,8 @@ public class Cocktail {
         this.contenance = calculerContenance();
         this.degreAlcool = calculerDegreAlcool();
         this.degreSucre = calculerDegreSucre();
+
+
     }
 
     /**
@@ -212,6 +215,6 @@ public class Cocktail {
     public String toString() {
         return "Cocktail [id=" + id + ", nom=" + nom + ", contenance=" + contenance
                 + " cl, degreAlcool=" + degreAlcool + ", degreSucre=" + degreSucre
-                + ", prix=" + calculerPrix() + "]";
+                + ", prix=" + calculerPrix() + ", sauvegarde=" + sauvegarde + "]";
     }
 }

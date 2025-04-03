@@ -15,6 +15,11 @@ import javaCode.dao.CocktailDAO;
  * il offre des méthodes pour servir un cocktail (vérifier et mettre à jour le stock)
  * et pour obtenir la liste des cocktails disponibles avec le nombre de portions réalisables
  * compte tenu du stock actuel de boissons et d'ingrédients.
+ *  Il permet :
+ *  - d'enregistrer un cocktail en base (si cocktail.isSauvegarde() == true),
+ *  - de créer des cocktails "sur mesure" sans les enregistrer en base,
+ *  - de servir un cocktail (mettre à jour les stocks de boissons et d'ingrédients),
+ * - de récupérer la liste des cocktails disponibles (et le nombre de portions réalisables).
  */
 public class CocktailController {
 
@@ -29,12 +34,20 @@ public class CocktailController {
     }
 
     /**
-     * Ajoute un nouveau cocktail dans la base de données.
-     * @param cocktail le cocktail à ajouter
-     * @return true si l'opération réussit, false sinon.
+     * Enregistre le cocktail en base si la propriété sauvegarde est true.
+     * Si sauvegarde est false (cocktail sur mesure), il ne sera pas enregistré,
+     * mais pourra être servi directement.
+     *
+     * @param cocktail Le cocktail à enregistrer ou à créer en mémoire.
+     * @return true si l'opération se déroule correctement, false sinon.
      */
     public boolean addCocktail(Cocktail cocktail) {
-        return cocktailDAO.insert(cocktail);
+        if (cocktail.isSauvegarde()) {
+            return cocktailDAO.insert(cocktail);
+        } else {
+            System.out.println("Cocktail sur mesure : non enregistré en base.");
+            return true;
+        }
     }
 
     /**

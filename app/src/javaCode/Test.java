@@ -129,5 +129,10 @@ public class Test {
         for (IngredientStock is : ingredientStockController.getAllIngredientStocks()) {
             System.out.println(is);
         }
+
+        System.out.println("\"\\n=== Tentative de recupereation des cocktails disponibles ===");
+        Map<Cocktail, Integer> availableCocktails = new HashMap<>();
+        availableCocktails = cocktailController.getAvailableCocktails();
+        System.out.println(availableCocktails);
     }
 }
