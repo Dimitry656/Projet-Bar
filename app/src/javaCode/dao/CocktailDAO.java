@@ -14,7 +14,7 @@ public class CocktailDAO implements IDao<Cocktail> {
 
     private static final String SELECT_BY_ID = "SELECT id, nom, prix, degre_alcool, contenance, degre_sucre FROM cocktails WHERE id = ?";
     private static final String SELECT_ALL = "SELECT id FROM cocktails";
-    private static final String INSERT_COCKTAIL = "INSERT INTO cocktails (nom, prix, degre_alcool, contenance, degre_sucre) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_COCKTAIL = "INSERT INTO cocktails (nom, prix, degre_alcool, contenance, degre_sucre) VALUES (?, ?, ?, ?, ?)";
     private static final String UPDATE_COCKTAIL = "UPDATE cocktails SET nom = ?, prix = ?, degre_alcool = ?, contenance = ?, degre_sucre = ?, WHERE id = ?";
     private static final String DELETE_COCKTAIL = "DELETE FROM cocktails WHERE id = ?";
 
@@ -40,7 +40,8 @@ public class CocktailDAO implements IDao<Cocktail> {
                 double degreAlcool = rs.getDouble("degre_alcool");
                 double contenance = rs.getDouble("contenance");
                 double degreSucre = rs.getDouble("degre_sucre");
-                boolean sauvegarde = rs.getBoolean("sauvegarde");
+                // en theorie prix etc cest calculé automatiquement quand on crée le cocktail avec les ingredients etc
+                boolean sauvegarde = true;
                 // Initialisation des maps vides
                 Map<Boisson, Double> boissonsUtilisees = new HashMap<>();
                 Map<Ingredient, Double> ingredientsUtilises = new HashMap<>();
@@ -75,6 +76,9 @@ public class CocktailDAO implements IDao<Cocktail> {
                         }
                     }
                 }
+
+                // Après avoir rempli les maps, recalculer les attributs dérivés
+                cocktail.updateAttributes();
             }
         } catch(SQLException e){
             e.printStackTrace();
@@ -162,8 +166,8 @@ public class CocktailDAO implements IDao<Cocktail> {
             stmt.setDouble(2, cocktail.calculerPrix());
             stmt.setDouble(3, cocktail.getDegreAlcool());
             stmt.setDouble(4, cocktail.getContenance());
+
             stmt.setDouble(5, cocktail.getDegreSucre());
-            stmt.setBoolean(6, cocktail.isSauvegarde());
             stmt.setInt(7, cocktail.getId());
             int affectedRows = stmt.executeUpdate();
             if(affectedRows > 0){

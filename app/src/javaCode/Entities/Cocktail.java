@@ -134,40 +134,45 @@ public class Cocktail {
      * @return le degré d'alcool moyen.
      */
     private double calculerDegreAlcool() {
-        double totalAlcool = 0;
+        double totalAlcoholContribution = 0;
         double totalVolume = calculerContenance();
         for (Map.Entry<Boisson, Double> entry : boissonsUtilisees.entrySet()) {
             Boisson boisson = entry.getKey();
-            double volume = entry.getValue();
-            totalAlcool += boisson.getDegreAlcool() * (volume / boisson.getContenance());
+            double volumeUsed = entry.getValue(); // en cl
+            // Contribution = (pourcentage alcool de la boisson) * (volume utilisé)
+            totalAlcoholContribution += boisson.getDegreAlcool() * volumeUsed;
         }
-        return (totalVolume == 0) ? 0 : totalAlcool;
+        return (totalVolume == 0) ? 0 : totalAlcoholContribution / totalVolume;
     }
+
 
     /**
      * Calcule le degré de sucre moyen du cocktail.
      * @return le degré de sucre moyen.
      */
     private double calculerDegreSucre() {
-        double totalSucre = 0;
+        double totalSugarContribution = 0;
         double totalVolume = calculerContenance();
+        // Pour les boissons
         for (Map.Entry<Boisson, Double> entry : boissonsUtilisees.entrySet()) {
             Boisson boisson = entry.getKey();
-            double volume = entry.getValue();
-            totalSucre += boisson.getDegreSucre() * (volume / boisson.getContenance());
+            double volumeUsed = entry.getValue();
+            totalSugarContribution += boisson.getDegreSucre() * volumeUsed;
         }
+        // Pour les ingrédients
         for (Map.Entry<Ingredient, Double> entry : ingredientsUtilises.entrySet()) {
             Ingredient ingredient = entry.getKey();
-            double volume = entry.getValue();
-            totalSucre += ingredient.getDegreSucre() * (volume / ingredient.getContenance());
+            double volumeUsed = entry.getValue();
+            totalSugarContribution += ingredient.getDegreSucre() * volumeUsed;
         }
-        return (totalVolume == 0) ? 0 : totalSucre;
+        return (totalVolume == 0) ? 0 : totalSugarContribution / totalVolume;
     }
+
 
     /**
      * Met à jour les attributs calculés (contenance, degré d'alcool et de sucre).
      */
-    private void updateAttributes() {
+    public void updateAttributes() {
         this.contenance = calculerContenance();
         this.degreAlcool = calculerDegreAlcool();
         this.degreSucre = calculerDegreSucre();

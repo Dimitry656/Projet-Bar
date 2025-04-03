@@ -20,13 +20,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
+/**
+ * ne pas executer sa va foutre le bordel en base car il ny' a pas les controller de mis en place cetais juste pour tester
+ */
 public class Test {
 
     public static void main(String[] args) {
         System.out.println("=== Test Insertion et Récupération de Boissons ===");
         // Création de boissons (ici, on utilise une implémentation anonyme de la classe abstraite Boisson)
-        Boisson whisky = new Boisson("Whisky", 1000.0, 50.0, 40.0, 5.0) {};
-        Boisson vodka = new Boisson("Vodka", 1000.0, 45.0, 38.0, 2.0) {};
+        Boisson whisky = new Boisson("Whisky", 100.0, 50.0, 40.0, 5.0) {};
+        Boisson vodka = new Boisson("Vodka", 100.0, 45.0, 38.0, 2.0) {};
 
         // Insertion dans la base via BoissonDAO
         BoissonDAO boissonDAO = new BoissonDAO();

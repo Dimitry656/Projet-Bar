@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class BoissonDAO implements IDao<Boisson> {
 
-    private static final String SELECT_BY_ID = "SELECT id, nom, contenance, prix, degrealcool, degresucre FROM boissons WHERE id = ?";
-    private static final String SELECT_ALL = "SELECT id, nom, contenance, prix, degrealcool, degresucre FROM boissons";
-    private static final String INSERT = "INSERT INTO boissons (nom, contenance, prix, degrealcool, degresucre) VALUES (?, ?, ?, ?, ?)";
-    private static final String UPDATE = "UPDATE boissons SET nom = ?, contenance = ?, prix = ?, degrealcool = ?, degresucre = ? WHERE id = ?";
+    private static final String SELECT_BY_ID = "SELECT id, nom, contenance, prix, degre_alcool, degre_sucre FROM boissons WHERE id = ?";
+    private static final String SELECT_ALL = "SELECT id, nom, contenance, prix, degre_alcool, degre_sucre FROM boissons";
+    private static final String INSERT = "INSERT INTO boissons (nom, contenance, prix, degre_alcool, degre_sucre) VALUES (?, ?, ?, ?, ?)";
+    private static final String UPDATE = "UPDATE boissons SET nom = ?, contenance = ?, prix = ?, degre_alcool = ?, degre_sucre = ? WHERE id = ?";
     private static final String DELETE = "DELETE FROM boissons WHERE id = ?";
 
     @Override
@@ -151,8 +151,8 @@ public class BoissonDAO implements IDao<Boisson> {
         boisson.setNom(rs.getString("nom"));
         boisson.setContenance(rs.getDouble("contenance"));
         boisson.setPrix(rs.getDouble("prix"));
-        boisson.setDegreAlcool(rs.getDouble("degrealcool"));
-        boisson.setDegreSucre(rs.getDouble("degresucre"));
+        boisson.setDegreAlcool(rs.getDouble("degre_alcool"));
+        boisson.setDegreSucre(rs.getDouble("degre_sucre"));
         return boisson;
     }
 }
