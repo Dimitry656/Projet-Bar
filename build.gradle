@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
 repositories {
@@ -24,6 +24,12 @@ sourceSets {
 dependencies {
     implementation 'org.postgresql:postgresql:42.5.0'
 }
+
+javafx {
+    version = "21"
+    modules = [ 'javafx.controls']
+}
+
 application {
     mainClass = 'Main'
 }
