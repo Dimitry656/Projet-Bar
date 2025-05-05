@@ -1,17 +1,22 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-
-import javaCode.view.*;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.util.Scanner;
 import javaCode.controller.*;
+import javaCode.view.*;
 
-public class Main {
+public class Main extends Application {
+
     public static void main(String[] args) {
-         int choix= 0;
+        // Démarrer JavaFX
+        launch(args);
+    }
 
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
+    @Override
+    public void start(Stage primaryStage) {
         CocktailController cocktailController = new CocktailController();
         IngredientController ingredientController = new IngredientController();
         IngredientStockController ingredientStockController = new IngredientStockController();
@@ -20,32 +25,30 @@ public class Main {
         InterfaceCommande interfaceCommande = new InterfaceCommande();
         InterfaceCocktail interfaceCoktail = new InterfaceCocktail();
 
+        // Interface JavaFX simple
+        Button commanderBtn = new Button("Commander un produit");
+        Button creerCocktailBtn = new Button("Créer un cocktail");
+        Button quitterBtn = new Button("Quitter");
 
-        System.out.println("Bjr, bienvenue au bar");
-
-        while (true) {
-            System.out.println("Que voulez-vous faire ? (rentrer le numéro correspondant)");
-            System.out.println("1. Commander un produit");
-            System.out.println("2. Créer un cocktail");
-            System.out.println("3. Quitter");
-
+        commanderBtn.setOnAction(e -> {
             Scanner scanner = new Scanner(System.in);
-            try {
-                 choix = scanner.nextInt();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (choix == 1) {
-                interfaceCommande.commandeCocktail(cocktailController, scanner);
-            } else if (choix == 2) {
-                interfaceCoktail.creerCocktail(cocktailController, ingredientController,boissonController, scanner);
-            } else if (choix == 3) {
-                System.out.println("Merci d'avoir utilisé notre service. Au revoir !");
-                break;
-            } else {
-                System.out.println("Choix invalide, veuillez réessayer.");
-            }
-        }
+            interfaceCommande.commandeCocktail(cocktailController, scanner);
+        });
 
+        creerCocktailBtn.setOnAction(e -> {
+            Scanner scanner = new Scanner(System.in);
+            interfaceCoktail.creerCocktail(cocktailController, ingredientController, boissonController, scanner);
+        });
+
+        quitterBtn.setOnAction(e -> {
+            primaryStage.close();
+        });
+
+        VBox root = new VBox(10, commanderBtn, creerCocktailBtn, quitterBtn);
+        Scene scene = new Scene(root, 300, 200);
+
+        primaryStage.setTitle("Bar à Cocktails");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
