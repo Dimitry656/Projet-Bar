@@ -59,6 +59,8 @@ public class IngredientController {
         return ingredientDAO.findById(id);
     }
 
+    public Ingredient getIngredientByNom(String nom) {return ingredientDAO.findByNom(nom);}
+
     /**
      * Récupère la liste de tous les ingrédients.
      *

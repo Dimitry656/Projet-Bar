@@ -1,5 +1,6 @@
 package javaCode.dao;
 
+import javaCode.Entities.Boisson;
 import javaCode.Entities.Ingredient;
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,6 +31,27 @@ public class IngredientDAO implements IDao<Ingredient> {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 ingredient = new Ingredient();
+                ingredient.setId(rs.getInt("id"));
+                ingredient.setNom(rs.getString("nom"));
+                ingredient.setContenance(rs.getDouble("contenance"));
+                ingredient.setPrix(rs.getDouble("prix"));
+                ingredient.setDegreSucre(rs.getDouble("degre_sucre"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ingredient;
+    }
+
+    public Ingredient findByNom(String nom) {
+        Ingredient ingredient = null;
+        String sql = "SELECT id, nom, contenance, prix, degre_sucre FROM ingredients WHERE LOWER(nom) = LOWER(?)";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, nom);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                ingredient = new Ingredient() { };  // ou utilisez une classe concrète si vous en avez une
                 ingredient.setId(rs.getInt("id"));
                 ingredient.setNom(rs.getString("nom"));
                 ingredient.setContenance(rs.getDouble("contenance"));
