@@ -28,12 +28,11 @@ public class Ingredient {
      * @param degreSucre         le taux de sucre ou impact sur le sucre
      * @param quantiteDisponible la quantité disponible en stock
      */
-    public Ingredient(String nom, double contenance, double prix, double degreSucre, double quantiteDisponible) {
+    public Ingredient(String nom, double contenance, double prix, double degreSucre) {
         this.nom = nom;
         this.contenance = contenance;
         this.prix = prix;
         this.degreSucre = degreSucre;
-        this.quantiteDisponible = quantiteDisponible;
     }
 
     // Getters et Setters
